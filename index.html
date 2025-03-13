@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'http://localhost:8080/user?userId=123', true);
+    // // xhr.setRequestHeader('Content-Type', 'application/json');
+    // xhr.onload = function() {
+    //     if (xhr.status === 200) {
+    //         const response = JSON.parse(xhr.responseText);
+    //         console.log(response);
+    //     }
+    // };
+    // xhr.send();
+    var app = document.getElementById('app');
+    fetch('http://localhost:8080/user?userId=123&additionalInfo=南师大')
+    .then(response => response.text())
+    .then((data) => {
+        app.innerHTML = data;
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+</script>
+</html>
